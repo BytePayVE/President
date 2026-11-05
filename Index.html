@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Billetera – Panel de administración</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main id="login" class="login">
+<form id="formLogin" class="login-caja" onsubmit="return false">
+    <h1>Billetera</h1>
+    <p class="sub">Panel de administración</p>
+    <label for="email">Correo</label>
+    <input id="email" type="email" autocomplete="username" required>
+    <label for="clave">Contraseña</label>
+    <input id="clave" type="password" autocomplete="current-password" required>
+    <p id="loginError" class="error" role="alert"></p>
+    <button type="submit" class="boton">Entrar</button>
+  </form>
+</main>
+
+<div id="panel" class="panel" hidden>
+  <header class="barra">
+    <strong class="marca">Billetera</strong>
+    <span id="usuario" class="usuario"></span>
+    <button id="salir" class="enlace" type="button">Salir</button>
+  </header>
+  <nav id="menu" class="menu">
+    <button type="button" data-vista="resumen" class="activo">Resumen</button>
+    <button type="button" data-vista="pagos">Pagos</button>
+    <button type="button" data-vista="cuotas">Cuotas</button>
+    <button type="button" data-vista="productos">Productos</button>
+    <button type="button" data-vista="actividad">Actividad</button>
+  </nav>
+  <section id="vista" class="vista"></section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>window.addEventListener('error', function (e) { document.getElementById('loginError').textContent = 'Error: ' + e.message; });</script>
+<script src="app.js" onerror="document.getElementById('loginError').textContent = 'No se encontró app.js en la carpeta.'"></script>
